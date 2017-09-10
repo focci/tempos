@@ -1,6 +1,6 @@
 {
   "name": "tempos",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "javascript template engine",
   "main": "index.js",
   "scripts": {
