@@ -19,7 +19,7 @@ const eq = (data, index = 0) => {
     else {
         ret = data[index];
     }
-    return ret;
+    return ret; 
 };
 
 module.exports = eq;
