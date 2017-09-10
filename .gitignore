@@ -1,0 +1,14 @@
+*.exe
+*.scc
+*.xml
+*.suo
+*.v11.suo
+*.suo
+*.deleteme
+*.nupkg
+*.nuspec
+*.bat
+*.config
+/.vscode/*
+/.sass-cache/*
+/node_modules/*

@@ -1,0 +1,36 @@
+{
+  "name": "tempos",
+  "version": "1.0.1",
+  "description": "javascript template engine",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development rollup -c -w",
+    "build:lib": "babel src --out-dir lib --presets=es2015",
+    "build": "cross-env NODE_ENV=production rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/focci/Blast.git"
+  },
+  "keywords": [
+    "blast",
+    "template"
+  ],
+  "devDependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "cross-env": "^5.0.4",
+    "rollup": "^0.45.2",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.1.0",
+    "rollup-plugin-eslint": "^4.0.0",
+    "rollup-plugin-json": "^2.3.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-replace": "^1.1.1",
+    "rollup-plugin-uglify": "^2.0.1",
+    "rollup-watch": "^4.3.1"
+  },
+  "author": "Focci",
+  "license": "MIT"
+}

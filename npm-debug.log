@@ -1,0 +1,103 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\Mr.F\\AppData\\Roaming\\npm\\node_modules\\cnpm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   '--userconfig=C:\\Users\\Mr.F\\.cnpmrc',
+1 verbose cli   '--disturl=https://npm.taobao.org/mirrors/node',
+1 verbose cli   '--registry=https://registry.npm.taobao.org',
+1 verbose cli   'publish' ]
+2 info using npm@3.10.10
+3 info using node@v8.3.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: 'E:\\Me\\Blast',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory C:\Users\Mr.F\AppData\Roaming\npm-cache\blast\1.0.1\package.tgz not in flight; packing
+9 verbose correctMkdir C:\Users\Mr.F\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+10 info lifecycle blast@1.0.1~prepublish: blast@1.0.1
+11 silly lifecycle blast@1.0.1~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ 'C:\\Users\\Mr.F\\AppData\\Roaming\\npm-cache\\blast\\1.0.1\\package.tgz',
+12 verbose tar pack   'E:\\Me\\Blast' ]
+13 verbose tarball C:\Users\Mr.F\AppData\Roaming\npm-cache\blast\1.0.1\package.tgz
+14 verbose folder E:\Me\Blast
+15 verbose addLocalTarball adding from inside cache C:\Users\Mr.F\AppData\Roaming\npm-cache\blast\1.0.1\package.tgz
+16 verbose correctMkdir C:\Users\Mr.F\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+17 silly cache afterAdd blast@1.0.1
+18 verbose afterAdd C:\Users\Mr.F\AppData\Roaming\npm-cache\blast\1.0.1\package\package.json not in flight; writing
+19 verbose correctMkdir C:\Users\Mr.F\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+20 verbose afterAdd C:\Users\Mr.F\AppData\Roaming\npm-cache\blast\1.0.1\package\package.json written
+21 silly publish { name: 'blast',
+21 silly publish   version: '1.0.1',
+21 silly publish   description: 'javascript template engine',
+21 silly publish   main: 'index.js',
+21 silly publish   scripts:
+21 silly publish    { dev: 'cross-env NODE_ENV=development rollup -c -w',
+21 silly publish      'build:lib': 'babel src --out-dir lib --presets=es2015',
+21 silly publish      build: 'cross-env NODE_ENV=production rollup -c',
+21 silly publish      test: 'echo "Error: no test specified" && exit 1' },
+21 silly publish   repository: { type: 'git', url: 'git+https://github.com/focci/Blast.git' },
+21 silly publish   keywords: [ 'blast', 'template' ],
+21 silly publish   devDependencies:
+21 silly publish    { 'babel-polyfill': '^6.26.0',
+21 silly publish      'babel-preset-es2015-rollup': '^3.0.0',
+21 silly publish      'cross-env': '^5.0.4',
+21 silly publish      rollup: '^0.45.2',
+21 silly publish      'rollup-plugin-babel': '^2.7.1',
+21 silly publish      'rollup-plugin-commonjs': '^8.1.0',
+21 silly publish      'rollup-plugin-eslint': '^4.0.0',
+21 silly publish      'rollup-plugin-json': '^2.3.0',
+21 silly publish      'rollup-plugin-node-resolve': '^3.0.0',
+21 silly publish      'rollup-plugin-replace': '^1.1.1',
+21 silly publish      'rollup-plugin-uglify': '^2.0.1',
+21 silly publish      'rollup-watch': '^4.3.1' },
+21 silly publish   author: { name: 'Focci' },
+21 silly publish   license: 'MIT',
+21 silly publish   readme: '# Blast\r\n高效的javascript模板引擎\r\n\r\n# 安装\r\n```\r\nnpm install blast --save\r\n```\r\n如果在web站点上使用，直接引入`blast.js`即可\r\n```\r\n<script src="./dist/blast.js"></script>\r\n```\r\n\r\n# 使用\r\n```\r\n<div id="container"></div>\r\n<script>\r\n    const compile = Blast(\'<div>Hello  {{= Name}}</div>\');\r\n    const res = compile({Name: "Blast"});\r\n    document.getElementById(\'container\').innerHTML = res;\r\n</script>\r\n```\r\n\r\n# 参数 / 方法\r\n## Blast.render(id:String, data:Object, option:Object)\r\nBlast()的别名函数\r\n\r\n| 参数    | 类型           | 说明  |\r\n| ------- |:------------: | -----:|\r\n| id   | String           | 模板ID |\r\n| data   | Object           | 数据对象 |\r\n| option   | Object       | 参数对象\r\n\r\n## Blast.compile(id:String, option:Object)\r\n编译模板，并返回一个函数\r\n\r\n| 参数    | 类型           | 说明  |\r\n| ------- |:------------: | -----:|\r\n| id   | String           | 模板ID |\r\n| option   | Object       | 参数对象\r\n\r\n## Blast.Config\r\n全局参数对象\r\n\r\n| 参数    | 类型       | 说明  |\r\n| ------- |:--------: | -----:|\r\n| debug   | Boolean   | 调试模式，默认值true |\r\n| cache   | Boolean   | 缓存，默认值true |\r\n| startTag| String    | 表达式开始标记 |\r\n| endTag| String      | 表达式结束标记 |\r\n| extname| String     | 模板扩展名 |\r\n| ignore| Object      | 编译模板时跳过的变量名\r\n\r\n比如编译时要跳过一个变量名 `var`\r\n```\r\nBlast.Config[\'var\'] = true;\r\n```\r\n\r\n## Blast.Filter\r\n过滤器对象，用于自定义过滤器，比如我们现在要定义一个将字符转换为大写的过滤器\r\n```\r\nBlast.Filter.toUpperCase = (data) => {\r\n    let ret = data;\r\n    if( typeof data === \'string\' ) {\r\n        ret = data.toUpperCase();\r\n    }\r\n    return ret;\r\n}\r\n```\r\n使用方式如下\r\n```\r\n{{= Name | toUpperCase}}\r\n```\r\n\r\n## Blast.Cache\r\n缓存操作类\r\n```\r\nlet ca = new Cache();\r\nca.set(\'blast\', \'高效的Javascript模板引擎\');\r\nconsole.log( ca.get(\'blast\') );\r\n```\r\n\r\n| 方法    | 参数                             | 说明  |\r\n| ------- |:------------------------------: | -----:|\r\n| set   | (key:String, value:Any)           | 设置缓存 |\r\n| get   | (key:String)                      | 缓存，默认值true |\r\n| detail| (key:String, callback:Function)   | 查找key对应的缓存，如果没有则设置\r\n\r\n\r\n# 捐赠\r\n![微信](https://coding.net/u/focci/p/asset/git/raw/master/focci_wechat.jpg)\r\n&nbsp;&nbsp;&nbsp;&nbsp;\r\n![支付宝](https://coding.net/u/focci/p/asset/git/raw/master/focci_alipay.jpg)',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: '76111f0881af6585eec0d3733b37bc2ea8ea73e7',
+21 silly publish   bugs: { url: 'https://github.com/focci/Blast/issues' },
+21 silly publish   homepage: 'https://github.com/focci/Blast#readme',
+21 silly publish   _id: 'blast@1.0.1',
+21 silly publish   _shasum: 'b50e91e1427dd9f492af6f3f9359975eb4e90896',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name blast
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npm.taobao.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'blast',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   escapedName: 'blast',
+26 silly mapToRegistry   name: 'blast',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npm.taobao.org/blast
+28 verbose publish registryBase https://registry.npm.taobao.org/
+29 silly publish uploading C:\Users\Mr.F\AppData\Roaming\npm-cache\blast\1.0.1\package.tgz
+30 verbose stack Error: auth required for publishing
+30 verbose stack     at CachingRegistryClient.publish (C:\Users\Mr.F\AppData\Roaming\npm\node_modules\cnpm\node_modules\npm\node_modules\npm-registry-client\lib\publish.js:30:14)
+30 verbose stack     at C:\Users\Mr.F\AppData\Roaming\npm\node_modules\cnpm\node_modules\npm\lib\publish.js:138:14
+30 verbose stack     at mapToRegistry (C:\Users\Mr.F\AppData\Roaming\npm\node_modules\cnpm\node_modules\npm\lib\utils\map-to-registry.js:62:3)
+30 verbose stack     at publish_ (C:\Users\Mr.F\AppData\Roaming\npm\node_modules\cnpm\node_modules\npm\lib\publish.js:107:3)
+30 verbose stack     at Array.<anonymous> (C:\Users\Mr.F\AppData\Roaming\npm\node_modules\cnpm\node_modules\npm\node_modules\slide\lib\bind-actor.js:15:8)
+30 verbose stack     at LOOP (C:\Users\Mr.F\AppData\Roaming\npm\node_modules\cnpm\node_modules\npm\node_modules\slide\lib\chain.js:15:14)
+30 verbose stack     at LOOP (C:\Users\Mr.F\AppData\Roaming\npm\node_modules\cnpm\node_modules\npm\node_modules\slide\lib\chain.js:14:28)
+30 verbose stack     at chain (C:\Users\Mr.F\AppData\Roaming\npm\node_modules\cnpm\node_modules\npm\node_modules\slide\lib\chain.js:20:5)
+30 verbose stack     at C:\Users\Mr.F\AppData\Roaming\npm\node_modules\cnpm\node_modules\npm\lib\publish.js:73:5
+30 verbose stack     at RES (C:\Users\Mr.F\AppData\Roaming\npm\node_modules\cnpm\node_modules\npm\node_modules\inflight\inflight.js:23:14)
+31 verbose cwd E:\Me\Blast
+32 error Windows_NT 10.0.14393
+33 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\Mr.F\\AppData\\Roaming\\npm\\node_modules\\cnpm\\node_modules\\npm\\bin\\npm-cli.js" "--userconfig=C:\\Users\\Mr.F\\.cnpmrc" "--disturl=https://npm.taobao.org/mirrors/node" "--registry=https://registry.npm.taobao.org" "publish"
+34 error node v8.3.0
+35 error npm  v3.10.10
+36 error code ENEEDAUTH
+37 error need auth auth required for publishing
+38 error need auth You need to authorize this machine using `npm adduser`
+39 verbose exit [ 1, true ]
