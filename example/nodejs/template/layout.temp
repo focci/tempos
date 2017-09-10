@@ -6,12 +6,7 @@
 </head>
 <body>
     {{ include 'include/header' }}
-    {{ include 'include/content' 
-        {
-            c: $__data__,
-            DX: 150
-        }
-    }}
+    {{ include 'include/content' }}
     {{ include 'include/footer' }}
 </body>
 </html>

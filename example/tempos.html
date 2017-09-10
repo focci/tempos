@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Blast</title>
+	<title>Tempos</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 	<style>
@@ -41,8 +41,8 @@
 	</div>
 	<div id="cont"></div>
 </div>
-<script src="speed/js/jquery-1.7.2.min.js"></script>
-<script src="../dist/blast.js"></script>
+<script src="./scripts/jquery.min.js"></script>
+<script src="../dist/tempos.js"></script>
 <script type="text/html" id="tpl">
 	<div class="right">
 		<p>显示结果</p>
@@ -93,7 +93,7 @@
 	<li>全部转换为小写：{{-UpperCont + Content | lower}}</li>
 	<li>每个单词首字母转换为大写：{{-Content | upper true}}</li>
 	<li>清除首尾空白：{{-Content | trim}}</li>
-	<li>替换：{{-Content | replace 'Blast' 'Blast JS模板引擎'}}</li>
+	<li>替换：{{-Content | replace 'Tempos' 'Tempos JS模板引擎'}}</li>
 	<li>截断字符串：{{-Content | truncate 6}}</li>
 	<li>默认字符：{{-Defaults | defaults '值为Null'}}</li>
 </ul>
@@ -119,7 +119,7 @@
 	var tmp = {
 		inter: {
 			tplTemp: $c('interTmpl'),
-			tplData: '{Name: "Blast"}'
+			tplData: '{Name: "Tempos"}'
 		},
 		eval: {
 			tplTemp: $c('evalTmpl'),
@@ -127,13 +127,13 @@
 		},
 		def: {
 			tplTemp: $c('defTmpl'),
-			tplData: '{q:{Title: "Blast", Content: "高性能Javascript模板引擎."}}'
+			tplData: '{q:{Title: "Tempos", Content: "高性能Javascript模板引擎."}}'
 		},
 		filter: {
 			tplTemp: $c('filterTmpl'),
 			tplData:'{'+
 						'esStr: "<script>alert(1)<\/script>",'+
-						'Content: " Blast ",'+
+						'Content: " Tempos ",'+
 						'Arr: [4,3,1,7,9],'+
 						'Defaults: null,'+
 						'UpperCont: "UPPERCASE TO LOWERCASE"'+
@@ -158,8 +158,8 @@
 			tplData[it] = t[it];
 		}
 		data = new Function('return '+t.tplData)();
-		tplData.tplHtml = tplData.tplResult = Blast(null, data, {template: t.tplTemp});
-		$cont.html( Blast('#tpl', tplData) );
+		tplData.tplHtml = tplData.tplResult = Tempos(null, data, {template: t.tplTemp});
+		$cont.html( Tempos('#tpl', tplData) );
 	}
 
 	function $c(id) {

@@ -9,15 +9,15 @@ import cfg from './package.json';
 
 export default {
     entry: 'src/index.js',
-    dest: 'dist/blast.js',
+    dest: 'dist/tempos.js',
     format: 'umd',
-    moduleName: 'Blast',
+    moduleName: 'Tempos',
     banner: '/*!\n' +
-        ' * Blast v' + cfg.version + '\n' +
+        ' * Tempos v' + cfg.version + '\n' +
         ' * (c) ' + new Date().getFullYear() + ' Focci\n' +
         ' * Under the MIT License\n' +
         ' */',
-    // sourceMap: true,
+    sourceMap: true,
     plugins: [
         json(),
         resolve({

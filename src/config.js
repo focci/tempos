@@ -10,7 +10,7 @@ const config = {
 
     endTag: '}}',
 
-    extname: '.blast',
+    extname: '.temp',
 
     filepath: null,
 

@@ -11,11 +11,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/focci/Blast.git"
+    "url": "https://github.com/focci/tempos.git"
   },
   "keywords": [
-    "blast",
-    "template"
+    "tempos",
+    "template",
+    "javascript",
+    "engine"
   ],
   "devDependencies": {
     "babel-polyfill": "^6.26.0",

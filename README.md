@@ -1,28 +1,28 @@
-# Blast
+# Tempos
 高效的javascript模板引擎
 
 # 安装
 ```
-npm install blast --save
+npm install tempos --save
 ```
-如果在web站点上使用，直接引入`blast.js`即可
+如果在web站点上使用，直接引入`tempos.js`即可
 ```
-<script src="./dist/blast.js"></script>
+<script src="./dist/tempos.js"></script>
 ```
 
 # 使用
 ```
 <div id="container"></div>
 <script>
-    const compile = Blast('<div>Hello  {{= Name}}</div>');
-    const res = compile({Name: "Blast"});
+    const compile = Tempos('<div>Hello  {{= Name}}</div>');
+    const res = compile({Name: "Tempos"});
     document.getElementById('container').innerHTML = res;
 </script>
 ```
 
 # 参数 / 方法
-## Blast.render(id:String, data:Object, option:Object)
-Blast()的别名函数
+## Tempos.render(id:String, data:Object, option:Object)
+Tempos()的别名函数
 
 | 参数    | 类型           | 说明  |
 | ------- |:------------: | -----:|
@@ -30,7 +30,7 @@ Blast()的别名函数
 | data   | Object           | 数据对象 |
 | option   | Object       | 参数对象
 
-## Blast.compile(id:String, option:Object)
+## Tempos.compile(id:String, option:Object)
 编译模板，并返回一个函数
 
 | 参数    | 类型           | 说明  |
@@ -38,7 +38,7 @@ Blast()的别名函数
 | id   | String           | 模板ID |
 | option   | Object       | 参数对象
 
-## Blast.Config
+## Tempos.Config
 全局参数对象
 
 | 参数    | 类型       | 说明  |
@@ -52,13 +52,13 @@ Blast()的别名函数
 
 比如编译时要跳过一个变量名 `var`
 ```
-Blast.Config['var'] = true;
+Tempos.Config['var'] = true;
 ```
 
-## Blast.Filter
+## Tempos.Filter
 过滤器对象，用于自定义过滤器，比如我们现在要定义一个将字符转换为大写的过滤器
 ```
-Blast.Filter.toUpperCase = (data) => {
+Tempos.Filter.toUpperCase = (data) => {
     let ret = data;
     if( typeof data === 'string' ) {
         ret = data.toUpperCase();
@@ -71,12 +71,12 @@ Blast.Filter.toUpperCase = (data) => {
 {{= Name | toUpperCase}}
 ```
 
-## Blast.Cache
+## Tempos.Cache
 缓存操作类
 ```
 let ca = new Cache();
-ca.set('blast', '高效的Javascript模板引擎');
-console.log( ca.get('blast') );
+ca.set('tempos', '高效的Javascript模板引擎');
+console.log( ca.get('tempos') );
 ```
 
 | 方法    | 参数                             | 说明  |
