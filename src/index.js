@@ -4,14 +4,14 @@ const compile = require('./compile/index');
 const filter = require('./filter/index');
 const cache = require('./tool/cache');
 
-const Blast = (content, data, option) => {
+const Tempos = (content, data, option) => {
     return render(content, data, option);
 };
 
-Blast.render = render;
-Blast.compile = compile;
-Blast.Config = config;
-Blast.Filter = filter;
-Blast.Cache = cache;
+Tempos.render = render;
+Tempos.compile = compile;
+Tempos.Config = config;
+Tempos.Filter = filter;
+Tempos.Cache = cache;
 
-module.exports = Blast;
+module.exports = Tempos;
