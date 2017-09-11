@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{- Title}}</title>
+</head>
+<body>
+    {{ include '../_global/header' }}
+    <aside>
+        {{ include '../_partial/slider' }}
+    </aside>
+    <article>
+        {{ #use.content }}
+    </article>
+    {{ include '../_global/footer' }}
+</body>
+</html>

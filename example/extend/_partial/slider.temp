@@ -1,0 +1,5 @@
+<aside>
+    {{ for(let key in Data ) { }}
+        <a href="{{- key}}.html">{{- Data[key].Title}}</a>
+    {{ } }}
+</aside>

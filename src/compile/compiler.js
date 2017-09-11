@@ -15,7 +15,8 @@ const OUT = '$__out__';
 const FILTER = '$__filter__';
 const RDEF_EXP = /#def\.([$_a-zA-Z](?:\w+)?)/;
 const RUSE_EXP = /#use\.([$_a-zA-Z](?:\w+)?)/;
-const RINCLUDE_EXP = /(include\s+(?:\'|\")([^\'\"]+)(?:\'|\")(?:\s+)?)([\w\W]+)?/; // eslint-disable-line
+const RINCLUDE_EXP = /(include\s+)(?:\'|\")([^\'\"]+)(?:\'|\")(?:\s+)?([\w\W]+)?/; // eslint-disable-line
+const REXTEND_EXP = /(extend\s+)(?:\'|\")([^\'\"]+)(?:\'|\")(?:\s+)?([\w\W]+)?/; // eslint-disable-line
 const RVCODE = /[\w_$]/;
 const RVAR_PREFIX = /^[a-zA-Z_$]/;
 
@@ -35,10 +36,10 @@ const createFnBody = (self) => {
         self.tokens.forEach(function(tok) {
             const flag = tok.def || tok.use || tok.include;
     
-            if( tok.def || tok.include ) {
+            if( tok.def || tok.include || tok.extend ) {
                 subs += `var ${tok.fnName}=function(${DATA}) {\n` + createFnBody(tok.compile) + '};\n';
             }
-            if( tok.use || tok.include ) {
+            if( tok.use || tok.include || tok.extend ) {
                 fnbody += `${OUT} += ${tok.fnName}.call(${FILTER}, ${tok.params || DATA});\n`;
             }
             else if( !flag && false === tok.out ) {
@@ -134,8 +135,17 @@ const parseExpression = (self, token, vars, start) => {
             tmp.fnName = ret[1];
             sdiff = ret[0].length;
         }
+        // {{include ... }}
         else if( (ret = exps.match(RINCLUDE_EXP)) ) {
             tmp.include = true;
+            tmp.path = ret[2];
+            tmp.params = ret[3];
+            sdiff = ret[1].length;
+        }
+        // {{extend ... }}
+        else if( (ret = exps.match(REXTEND_EXP)) ) {
+            tmp.extend = true;
+            tmp.out = true;
             tmp.path = ret[2];
             tmp.params = ret[3];
             sdiff = ret[1].length;
@@ -164,7 +174,7 @@ const parseExpression = (self, token, vars, start) => {
         else if( tmp.use ) {
             tmp.params = exps;
         }
-        else if( tmp.include ) {
+        else if( tmp.include || tmp.extend ) {
             tmp.source = loader(tmp.path, tmp);
             tmp.compile = new Compiler({
                 template: tmp.source

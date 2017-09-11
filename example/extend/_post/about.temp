@@ -1,0 +1,5 @@
+{{ extend '../_partial/layout' }}
+
+{{#def.content
+    <p>about .......</p>
+#}}
