@@ -1,5 +1,0 @@
-{{ extend '../_partial/layout' }}
-
-{{#def.content 
-    <p>index .......</p>
-#}}

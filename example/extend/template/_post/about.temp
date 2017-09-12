@@ -1,5 +1,5 @@
 {{ extend '../_partial/layout' }}
 
 {{#def.content
-    <p>about .......</p>
+    <p>Tempos is a javascript template engine</p>
 #}}
