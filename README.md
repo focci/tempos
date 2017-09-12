@@ -5,7 +5,7 @@ Tempos is an efficient javascript template engine
 ```
 npm install tempos --save
 ```
-Or in web import the 'tempos.js'
+Or import the 'tempos.js' in the web page
 ```
 <script src="./dist/tempos.js"></script>
 ```
