@@ -249,7 +249,7 @@ const parseStr =  (source) => {
                 vars = '';
             }
             // Variable
-            if( !inS ) { vars += s; }
+            else if( !inS ) { vars += s; }
             // Expression
             if( !inF ) { exps += s; }
         }
@@ -273,6 +273,7 @@ const addvars = (str, vars) => {
 const addFilters = (tok) => {
     return filterCache.detail(JSON.stringify(tok), ()=>{
         let filters = tok.escape ? `${FILTER}.escape(` + tok.source + ')' : tok.source;
+        let flag;
 
         for(let key in tok.filter) {
             if( tok.escape && key === 'escape' ) continue;
@@ -282,8 +283,9 @@ const addFilters = (tok) => {
                 params = ',' + tok.filter[key].join(',')+')';
             }
             filters = `${FILTER}.${key}(${filters}` + params;
+            flag = 1;
         }
-        return filters;
+        return flag ? filters : '(' + filters + ')';
     });
 };
 
