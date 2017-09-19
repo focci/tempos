@@ -40,7 +40,7 @@ const createFnBody = (self) => {
                 subs += `var ${tok.fnName}=function(${DATA}) {\n` + createFnBody(tok.compile) + '};\n';
             }
             if( tok.use || tok.include || tok.extend ) {
-                fnbody += `${OUT} += ${tok.fnName}.call(${FILTER}, ${tok.params.trim() || DATA});\n`;
+                fnbody += `${OUT} += ${tok.fnName}.call(${FILTER}, ${tok.params || DATA});\n`;
             }
             else if( !flag && false === tok.out ) {
                 fnbody += `${tok.source}\n`;
@@ -139,7 +139,7 @@ const parseExpression = (self, token, vars, start) => {
         else if( (ret = exps.match(RINCLUDE_EXP)) ) {
             tmp.include = true;
             tmp.path = ret[2];
-            tmp.params = ret[3];
+            tmp.params = ret[3] ? ret[3].trim(): ret[3];
             sdiff = ret[1].length;
         }
         // {{extend ... }}
@@ -147,7 +147,7 @@ const parseExpression = (self, token, vars, start) => {
             tmp.extend = true;
             tmp.out = true;
             tmp.path = ret[2];
-            tmp.params = ret[3];
+            tmp.params = ret[3] ? ret[3].trim(): ret[3];
             sdiff = ret[1].length;
         }
         else {
