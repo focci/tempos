@@ -40,7 +40,7 @@ const createFnBody = (self) => {
                 subs += `var ${tok.fnName}=function(${DATA}) {\n` + createFnBody(tok.compile) + '};\n';
             }
             if( tok.use || tok.include || tok.extend ) {
-                fnbody += `${OUT} += ${tok.fnName}.call(${FILTER}, ${tok.params || DATA});\n`;
+                fnbody += `${OUT} += ${tok.fnName}.call(${FILTER}, ${tok.params.trim() || DATA});\n`;
             }
             else if( !flag && false === tok.out ) {
                 fnbody += `${tok.source}\n`;
