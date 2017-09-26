@@ -54,7 +54,7 @@
 
 <!-- 插值表达式 -->
 <script type="text/html" id="interTmpl">
-<div>Hello 'word "ssss" \{\{a\}\}' \{\{sss\}\} - {{= Name}}</div>	
+<div>Hello {{= Name}}</div>	
 </script>
 
 <!-- 循环输出 -->
@@ -158,8 +158,8 @@
 			tplData[it] = t[it];
 		}
 		data = new Function('return '+t.tplData)();
-		tplData.tplHtml = tplData.tplResult = Tempos(null, data, {template: t.tplTemp});
-		$cont.html( Tempos('#tpl', tplData) );
+		tplData.tplHtml = tplData.tplResult = tempos(null, data, {template: t.tplTemp});
+		$cont.html( tempos('#tpl', tplData) );
 	}
 
 	function $c(id) {
