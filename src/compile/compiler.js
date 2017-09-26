@@ -163,7 +163,7 @@ const parseExpression = (self, token, vars, start) => {
                 break;
             }
         }
-        exps = cnt.substring(start+sdiff+1, end);
+        exps = cnt.substring(start+sdiff, end).trim();
         
         if( tmp.def ) {
             tmp.source = exps;
