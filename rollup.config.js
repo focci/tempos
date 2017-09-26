@@ -11,9 +11,9 @@ export default {
     entry: 'src/index.js',
     dest: 'dist/tempos.js',
     format: 'umd',
-    moduleName: 'Tempos',
+    moduleName: 'tempos',
     banner: '/*!\n' +
-        ' * Tempos v' + cfg.version + '\n' +
+        ' * tempos v' + cfg.version + '\n' +
         ' * (c) ' + new Date().getFullYear() + ' Focci\n' +
         ' * Under the MIT License\n' +
         ' */',
