@@ -7,6 +7,7 @@
     "dev": "cross-env NODE_ENV=development rollup -c -w",
     "build:lib": "babel src --out-dir lib --presets=es2015",
     "build": "cross-env NODE_ENV=production rollup -c",
+    "doc": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,6 +24,10 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015-rollup": "^3.0.0",
     "cross-env": "^5.0.4",
+    "gulp": "^3.9.1",
+    "gulp-data": "^1.2.1",
+    "gulp-notify": "^3.0.0",
+    "gulp-tempos": "^1.0.4",
     "rollup": "^0.45.2",
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-commonjs": "^8.1.0",
