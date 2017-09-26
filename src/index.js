@@ -10,8 +10,8 @@ const tempos = (content, data, option) => {
 
 tempos.render = render;
 tempos.compile = compile;
-tempos.Config = config;
-tempos.Filter = filter;
-tempos.Cache = cache;
+tempos.config = config;
+tempos.filter = filter;
+tempos.cache = cache;
 
 module.exports = tempos;
