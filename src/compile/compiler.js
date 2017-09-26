@@ -40,7 +40,7 @@ const createFnBody = (self) => {
                 subs += `var ${tok.fnName}=function(${DATA}) {\n` + createFnBody(tok.compile) + '};\n';
             }
             if( tok.use || tok.include || tok.extend ) {
-                fnbody += `${OUT} += ${tok.fnName}.call(${FILTER}, ${tok.params || DATA});\n`;
+                fnbody += `${OUT} += ${tok.fnName}.call(${FILTER}, ${(tok.params ? tok.params.trim(): tok.params) || DATA});\n`;
             }
             else if( !flag && false === tok.out ) {
                 fnbody += `${tok.source}\n`;
@@ -163,7 +163,7 @@ const parseExpression = (self, token, vars, start) => {
                 break;
             }
         }
-        exps = cnt.substring(start+sdiff, end);
+        exps = cnt.substring(start+sdiff+1, end);
         
         if( tmp.def ) {
             tmp.source = exps;
