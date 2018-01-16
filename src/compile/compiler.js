@@ -25,7 +25,7 @@ const createFnBody = (self) => {
         let key;
         let fnbody = '';
         let subs = '';
-        let vars = `var ${OUT} = '',${FILTER}=this`;
+        let vars = `${DATA} = ${DATA} || {};\nvar ${OUT} = '',${FILTER}=this`;
         
         // Add variable
         for( key in self.vars ) {
